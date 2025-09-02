@@ -1,2 +1,34 @@
-# Placeholder BUILD file for crate_universe manifest watching
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "grep-searcher",
+    srcs = glob(["src/**/*.rs"]),
+    crate_root = "src/lib.rs",
+    edition = "2021",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@ripgrep_deps//:bstr",
+        "@ripgrep_deps//:encoding_rs",
+        "@ripgrep_deps//:encoding_rs_io",
+        "@ripgrep_deps//:log",
+        "@ripgrep_deps//:memchr",
+        "@ripgrep_deps//:memmap2-0.9.4",
+        "//crates/matcher:grep-matcher",
+    ],
+    aliases = {
+        "@ripgrep_deps//:memmap2-0.9.4": "memmap",
+    },
+)
+
+rust_test(
+    name = "grep-searcher_test",
+    crate = ":grep-searcher",
+    edition = "2021",
+    deps = [
+        "//crates/regex:grep-regex",
+        "@ripgrep_deps//:regex",
+    ],
+)
+
+# Export Cargo.toml for crate_universe
 exports_files(["Cargo.toml"])

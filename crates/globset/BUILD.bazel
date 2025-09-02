@@ -1,2 +1,25 @@
-# Placeholder BUILD file for crate_universe manifest watching
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "globset",
+    srcs = glob(["src/**/*.rs"]),
+    crate_root = "src/lib.rs",
+    edition = "2021",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@ripgrep_deps//:aho-corasick",
+        "@ripgrep_deps//:bstr",
+        "@ripgrep_deps//:log",
+        "@ripgrep_deps//:regex-automata",
+        "@ripgrep_deps//:regex-syntax",
+    ],
+)
+
+rust_test(
+    name = "globset_test",
+    crate = ":globset",
+    edition = "2021",
+)
+
+# Export Cargo.toml for crate_universe
 exports_files(["Cargo.toml"])

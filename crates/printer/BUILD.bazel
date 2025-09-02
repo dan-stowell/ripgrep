@@ -1,2 +1,30 @@
-# Placeholder BUILD file for crate_universe manifest watching
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "grep-printer",
+    srcs = glob(["src/**/*.rs"]),
+    crate_root = "src/lib.rs",
+    edition = "2021",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@ripgrep_deps//:bstr",
+        "@ripgrep_deps//:log",
+        "@ripgrep_deps//:serde",
+        "@ripgrep_deps//:serde_json",
+        "@ripgrep_deps//:termcolor",
+        "//crates/matcher:grep-matcher",
+        "//crates/searcher:grep-searcher",
+    ],
+)
+
+rust_test(
+    name = "grep-printer_test",
+    crate = ":grep-printer",
+    edition = "2021",
+    deps = [
+        "//crates/regex:grep-regex",
+    ],
+)
+
+# Export Cargo.toml for crate_universe
 exports_files(["Cargo.toml"])

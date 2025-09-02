@@ -1,2 +1,34 @@
-# Placeholder BUILD file for crate_universe manifest watching
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "ignore",
+    srcs = glob(["src/**/*.rs"]),
+    crate_root = "src/lib.rs",
+    edition = "2021",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@ripgrep_deps//:crossbeam-deque",
+        "@ripgrep_deps//:log",
+        "@ripgrep_deps//:memchr",
+        "@ripgrep_deps//:regex-automata",
+        "@ripgrep_deps//:same-file",
+        "@ripgrep_deps//:walkdir",
+        "//crates/globset:globset",
+    ] + select({
+        "@platforms//os:windows": ["@ripgrep_deps//:winapi-util"],
+        "//conditions:default": [],
+    }),
+)
+
+rust_test(
+    name = "ignore_test",
+    crate = ":ignore",
+    edition = "2021",
+    deps = [
+        "@ripgrep_deps//:bstr",
+        "@ripgrep_deps//:crossbeam-channel",
+    ],
+)
+
+# Export Cargo.toml for crate_universe
 exports_files(["Cargo.toml"])
