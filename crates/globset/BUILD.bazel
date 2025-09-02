@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test", "rust_doc", "rust_clippy", "rustfmt_test")
 
 rust_library(
     name = "globset",
@@ -19,6 +19,22 @@ rust_test(
     name = "globset_test",
     crate = ":globset",
     edition = "2021",
+)
+
+rustfmt_test(
+    name = "globset_rustfmt_test",
+    targets = [":globset"],
+)
+
+rust_clippy(
+    name = "globset_clippy",
+    deps = [":globset"],
+)
+
+rust_doc(
+    name = "globset_doc",
+    crate = ":globset",
+    visibility = ["//visibility:public"],
 )
 
 # Export Cargo.toml for crate_universe

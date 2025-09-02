@@ -1,0 +1,54 @@
+load("@rules_rust//rust:defs.bzl", "rust_test_suite")
+
+# Aggregate formatting tests for all crates
+test_suite(
+    name = "format_all",
+    tests = [
+        "//crates/globset:globset_rustfmt_test",
+        "//crates/matcher:grep-matcher_rustfmt_test",
+        "//crates/regex:grep-regex_rustfmt_test",
+        "//crates/searcher:grep-searcher_rustfmt_test", 
+        "//crates/printer:grep-printer_rustfmt_test",
+        "//crates/cli:grep-cli_rustfmt_test",
+        "//crates/ignore:ignore_rustfmt_test",
+        "//crates/pcre2:grep-pcre2_rustfmt_test",
+        "//crates/grep:grep_rustfmt_test",
+        "//crates/grep:grep_pcre2_rustfmt_test",
+        "//crates/core:rg_rustfmt_test",
+    ],
+)
+
+# Aggregate clippy targets for all crates
+filegroup(
+    name = "lint_all",
+    srcs = [
+        "//crates/globset:globset_clippy",
+        "//crates/matcher:grep-matcher_clippy",
+        "//crates/regex:grep-regex_clippy",
+        "//crates/searcher:grep-searcher_clippy",
+        "//crates/printer:grep-printer_clippy",
+        "//crates/cli:grep-cli_clippy",
+        "//crates/ignore:ignore_clippy",
+        "//crates/pcre2:grep-pcre2_clippy",
+        "//crates/grep:grep_clippy",
+        "//crates/grep:grep_pcre2_clippy",
+        "//crates/core:rg_clippy",
+    ],
+)
+
+# Aggregate documentation targets for all crates
+filegroup(
+    name = "docs_all",
+    srcs = [
+        "//crates/globset:globset_doc",
+        "//crates/matcher:grep-matcher_doc",
+        "//crates/regex:grep-regex_doc",
+        "//crates/searcher:grep-searcher_doc",
+        "//crates/printer:grep-printer_doc",
+        "//crates/cli:grep-cli_doc",
+        "//crates/ignore:ignore_doc",
+        "//crates/pcre2:grep-pcre2_doc",
+        "//crates/grep:grep_doc",
+        "//crates/grep:grep_pcre2_doc",
+    ],
+)

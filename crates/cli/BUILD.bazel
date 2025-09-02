@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test", "rust_doc", "rust_clippy", "rustfmt_test")
 
 rust_library(
     name = "grep-cli",
@@ -23,6 +23,21 @@ rust_test(
     name = "grep-cli_test",
     crate = ":grep-cli",
     edition = "2021",
+)
+
+rustfmt_test(
+    name = "grep-cli_rustfmt_test",
+    targets = [":grep-cli"],
+)
+
+rust_clippy(
+    name = "grep-cli_clippy",
+    deps = [":grep-cli"],
+)
+
+rust_doc(
+    name = "grep-cli_doc",
+    crate = ":grep-cli",
 )
 
 # Export Cargo.toml for crate_universe

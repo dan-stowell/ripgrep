@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test", "rust_doc", "rust_clippy", "rustfmt_test")
 
 rust_library(
     name = "ignore",
@@ -28,6 +28,21 @@ rust_test(
         "@ripgrep_deps//:bstr",
         "@ripgrep_deps//:crossbeam-channel",
     ],
+)
+
+rustfmt_test(
+    name = "ignore_rustfmt_test",
+    targets = [":ignore"],
+)
+
+rust_clippy(
+    name = "ignore_clippy",
+    deps = [":ignore"],
+)
+
+rust_doc(
+    name = "ignore_doc",
+    crate = ":ignore",
 )
 
 # Export Cargo.toml for crate_universe

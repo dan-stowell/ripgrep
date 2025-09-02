@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test", "rust_doc", "rust_clippy", "rustfmt_test")
 
 rust_library(
     name = "grep-regex",
@@ -19,6 +19,21 @@ rust_test(
     name = "grep-regex_test",
     crate = ":grep-regex",
     edition = "2021",
+)
+
+rustfmt_test(
+    name = "grep-regex_rustfmt_test",
+    targets = [":grep-regex"],
+)
+
+rust_clippy(
+    name = "grep-regex_clippy",
+    deps = [":grep-regex"],
+)
+
+rust_doc(
+    name = "grep-regex_doc",
+    crate = ":grep-regex",
 )
 
 # Export Cargo.toml for crate_universe

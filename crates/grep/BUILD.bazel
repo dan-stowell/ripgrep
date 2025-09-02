@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test", "rust_doc", "rust_clippy", "rustfmt_test")
 
 rust_library(
     name = "grep",
@@ -50,6 +50,36 @@ rust_test(
         "@ripgrep_deps//:termcolor",
         "@ripgrep_deps//:walkdir",
     ],
+)
+
+rustfmt_test(
+    name = "grep_rustfmt_test",
+    targets = [":grep"],
+)
+
+rust_clippy(
+    name = "grep_clippy",
+    deps = [":grep"],
+)
+
+rust_doc(
+    name = "grep_doc",
+    crate = ":grep",
+)
+
+rustfmt_test(
+    name = "grep_pcre2_rustfmt_test",
+    targets = [":grep_pcre2"],
+)
+
+rust_clippy(
+    name = "grep_pcre2_clippy",
+    deps = [":grep_pcre2"],
+)
+
+rust_doc(
+    name = "grep_pcre2_doc",
+    crate = ":grep_pcre2",
 )
 
 # Export Cargo.toml for crate_universe

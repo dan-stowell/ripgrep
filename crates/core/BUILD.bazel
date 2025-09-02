@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_binary")
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_doc", "rust_clippy", "rustfmt_test")
 
 # Handle build.rs functionality with genrule
 genrule(
@@ -46,6 +46,16 @@ rust_binary(
         "@platforms//os:linux": ["@ripgrep_deps//:jemallocator"],
         "//conditions:default": [],
     }),
+)
+
+rustfmt_test(
+    name = "rg_rustfmt_test",
+    targets = [":rg"],
+)
+
+rust_clippy(
+    name = "rg_clippy",
+    deps = [":rg"],
 )
 
 rust_binary(
