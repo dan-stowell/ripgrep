@@ -4,6 +4,7 @@ rust_library(
     name = "grep-printer",
     srcs = glob(["src/**/*.rs"]),
     crate_root = "src/lib.rs",
+    crate_features = ["serde"],
     edition = "2021",
     visibility = ["//visibility:public"],
     deps = [

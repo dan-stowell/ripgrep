@@ -1,0 +1,92 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary")
+
+# Handle build.rs functionality with genrule
+genrule(
+    name = "git_hash_gen",
+    outs = ["git_hash.txt"],
+    cmd = "git rev-parse --short=10 HEAD > $@ || echo 'unknown' > $@",
+    stamp = 1,
+)
+
+rust_binary(
+    name = "rg",
+    srcs = glob([
+        "*.rs",
+        "flags/**/*.rs",
+    ]),
+    data = glob([
+        "flags/**/*.sh",
+        "flags/**/*.help",
+        "flags/**/*.1",
+        "flags/**/*.zsh",
+    ]),
+    compile_data = glob([
+        "flags/**/*.sh",
+        "flags/**/*.help",
+        "flags/**/*.1",
+        "flags/**/*.zsh",
+    ]),
+    crate_root = "main.rs",
+    edition = "2021",
+    rustc_env = {
+        "RIPGREP_BUILD_GIT_HASH": "bazel-build",
+    },
+    visibility = ["//visibility:public"],
+    deps = [
+        "@ripgrep_deps//:anyhow",
+        "@ripgrep_deps//:bstr", 
+        "@ripgrep_deps//:lexopt",
+        "@ripgrep_deps//:log",
+        "@ripgrep_deps//:serde_json",
+        "@ripgrep_deps//:termcolor",
+        "@ripgrep_deps//:textwrap",
+        "//crates/grep:grep",
+        "//crates/ignore:ignore",
+    ] + select({
+        "@platforms//os:linux": ["@ripgrep_deps//:jemallocator"],
+        "//conditions:default": [],
+    }),
+)
+
+rust_binary(
+    name = "rg_pcre2",
+    srcs = glob([
+        "*.rs", 
+        "flags/**/*.rs",
+    ]),
+    data = glob([
+        "flags/**/*.sh",
+        "flags/**/*.help",
+        "flags/**/*.1",
+        "flags/**/*.zsh",
+    ]),
+    compile_data = glob([
+        "flags/**/*.sh",
+        "flags/**/*.help",
+        "flags/**/*.1",
+        "flags/**/*.zsh",
+    ]),
+    crate_root = "main.rs",
+    crate_features = ["pcre2"],
+    edition = "2021",
+    rustc_env = {
+        "RIPGREP_BUILD_GIT_HASH": "bazel-build", 
+    },
+    visibility = ["//visibility:public"],
+    deps = [
+        "@ripgrep_deps//:anyhow",
+        "@ripgrep_deps//:bstr",
+        "@ripgrep_deps//:lexopt", 
+        "@ripgrep_deps//:log",
+        "@ripgrep_deps//:serde_json",
+        "@ripgrep_deps//:termcolor", 
+        "@ripgrep_deps//:textwrap",
+        "//crates/ignore:ignore",
+    ] + select({
+        "@platforms//os:linux": ["@ripgrep_deps//:jemallocator"],
+        "//conditions:default": [],
+    }),
+    aliases = {
+        "//crates/grep:grep_pcre2": "grep",
+    },
+)
