@@ -1,0 +1,26 @@
+load("@rules_rust//rust:defs.bzl", "rust_test")
+
+rust_test(
+    name = "integration_test",
+    srcs = glob(["*.rs"]),
+    crate_root = "tests.rs",
+    edition = "2021",
+    compile_data = glob(["data/**"]),
+    deps = [
+        "@ripgrep_deps//:bstr",
+        "@ripgrep_deps//:serde",
+        "@ripgrep_deps//:serde_json",
+        "@ripgrep_deps//:walkdir",
+        "//crates/grep:grep",
+        "//crates/ignore:ignore",
+    ],
+    proc_macro_deps = [
+        "@ripgrep_deps//:serde_derive",
+    ],
+    # Integration tests need access to the rg binary and test data
+    data = glob(["data/**"]) + ["//crates/core:rg"],
+    env = {
+        "RG_BIN": "$(location //crates/core:rg)",
+    },
+)
+
