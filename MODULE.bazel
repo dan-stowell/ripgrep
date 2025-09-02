@@ -12,4 +12,21 @@ rust.toolchain(edition = "2021")
 use_repo(rust, "rust_toolchains")
 register_toolchains("@rust_toolchains//:all")
 
-# External dependencies will be added in Step 2
+crate_universe_deps = use_extension("@rules_rust//crate_universe:extensions.bzl", "crate")
+crate_universe_deps.from_cargo(
+    name = "ripgrep_deps",
+    cargo_lockfile = "//:Cargo.lock",
+    manifests = [
+        "//:Cargo.toml",
+        "//crates/globset:Cargo.toml",
+        "//crates/grep:Cargo.toml",
+        "//crates/cli:Cargo.toml",
+        "//crates/matcher:Cargo.toml",
+        "//crates/pcre2:Cargo.toml", 
+        "//crates/printer:Cargo.toml",
+        "//crates/regex:Cargo.toml",
+        "//crates/searcher:Cargo.toml",
+        "//crates/ignore:Cargo.toml",
+    ],
+)
+use_repo(crate_universe_deps, "ripgrep_deps")

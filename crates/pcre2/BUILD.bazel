@@ -1,0 +1,2 @@
+# Placeholder BUILD file for crate_universe manifest watching
+exports_files(["Cargo.toml"])
