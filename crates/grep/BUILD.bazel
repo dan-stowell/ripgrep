@@ -1,2 +1,56 @@
-# Placeholder BUILD file for crate_universe manifest watching
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "grep",
+    srcs = glob(["src/**/*.rs"]),
+    crate_root = "src/lib.rs",
+    edition = "2021",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//crates/cli:grep-cli",
+        "//crates/matcher:grep-matcher",
+        "//crates/printer:grep-printer",
+        "//crates/regex:grep-regex",
+        "//crates/searcher:grep-searcher",
+    ],
+)
+
+rust_library(
+    name = "grep_pcre2",
+    srcs = glob(["src/**/*.rs"]),
+    crate_root = "src/lib.rs",
+    crate_features = ["pcre2"],
+    edition = "2021",
+    visibility = ["//visibility:public"], 
+    deps = [
+        "//crates/cli:grep-cli",
+        "//crates/matcher:grep-matcher",
+        "//crates/pcre2:grep-pcre2",
+        "//crates/printer:grep-printer",
+        "//crates/regex:grep-regex",
+        "//crates/searcher:grep-searcher",
+    ],
+)
+
+rust_test(
+    name = "grep_test",
+    crate = ":grep",
+    edition = "2021",
+    deps = [
+        "@ripgrep_deps//:termcolor",
+        "@ripgrep_deps//:walkdir",
+    ],
+)
+
+rust_test(
+    name = "grep_pcre2_test",
+    crate = ":grep_pcre2",
+    edition = "2021",
+    deps = [
+        "@ripgrep_deps//:termcolor",
+        "@ripgrep_deps//:walkdir",
+    ],
+)
+
+# Export Cargo.toml for crate_universe
 exports_files(["Cargo.toml"])
