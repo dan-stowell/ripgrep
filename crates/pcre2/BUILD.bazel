@@ -1,2 +1,23 @@
-# Placeholder BUILD file for crate_universe manifest watching
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "grep-pcre2",
+    srcs = glob(["src/**/*.rs"]),
+    crate_root = "src/lib.rs",
+    edition = "2018",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@ripgrep_deps//:log",
+        "@ripgrep_deps//:pcre2",
+        "//crates/matcher:grep-matcher",
+    ],
+)
+
+rust_test(
+    name = "grep-pcre2_test",
+    crate = ":grep-pcre2",
+    edition = "2018",
+)
+
+# Export Cargo.toml for crate_universe
 exports_files(["Cargo.toml"])
