@@ -1,0 +1,15 @@
+module(
+    name = "ripgrep",
+    version = "14.1.1",
+)
+
+bazel_dep(name = "rules_rust", version = "0.63.0")
+bazel_dep(name = "platforms", version = "0.0.11")
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+
+rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
+rust.toolchain(edition = "2021")
+use_repo(rust, "rust_toolchains")
+register_toolchains("@rust_toolchains//:all")
+
+# External dependencies will be added in Step 2

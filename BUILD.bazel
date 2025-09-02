@@ -1,0 +1,16 @@
+# Root BUILD.bazel file for ripgrep workspace
+
+# Export configuration files for use by other targets
+exports_files([
+    "Cargo.toml",
+    "Cargo.lock", 
+    ".gitignore",
+    "rustfmt.toml",
+])
+
+# Convenient aliases (will be populated in Step 10)
+# alias(
+#     name = "rg",
+#     actual = "//crates/core:rg",
+#     visibility = ["//visibility:public"],
+# )
