@@ -1,0 +1,22 @@
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "grep_matcher",
+    srcs = glob(["src/**/*.rs"]),
+    crate_name = "grep_matcher",
+    deps = [
+        "@crate_index//:memchr",
+        "@crate_index//:regex-automata",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+rust_test(
+    name = "integration_test",
+    srcs = ["tests/integration_test.rs"],
+    deps = [
+        ":grep_matcher",
+        "@crate_index//:anyhow",
+        "@crate_index//:regex",
+    ],
+)
