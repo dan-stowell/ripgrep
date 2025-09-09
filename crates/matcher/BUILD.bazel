@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_library")
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
 
 rust_library(
     name = "grep_matcher",
@@ -11,4 +11,9 @@ rust_library(
         "@crate_index//:regex-syntax",
         "@crate_index//:memchr",
     ],
+)
+
+rust_test(
+    name = "integration_test",
+    crate = ":grep_matcher",
 )
