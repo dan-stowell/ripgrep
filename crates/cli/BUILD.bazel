@@ -1,0 +1,11 @@
+sh_binary(
+    name = "grep_cli",
+    srcs = ["grep_cli.sh"],
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "srcs",
+    srcs = glob(["src/**"]),
+    visibility = ["//visibility:public"],
+)
