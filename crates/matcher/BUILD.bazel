@@ -4,16 +4,7 @@ package(default_visibility = ["//visibility:public"])
 
 rust_library(
     name = "grep_matcher",
-    srcs = [
-        "src/lib.rs",
-        "src/line_terminator.rs",
-        "src/literal.rs",
-        "src/matcher.rs",
-        "src/multi.rs",
-        "src/no_error.rs",
-        "src/noop.rs",
-        "src/util.rs",
-    ],
+    srcs = glob(["src/**/*.rs"]),
     edition = "2021",
     crate_root = "src/lib.rs",
     deps = [
@@ -25,10 +16,7 @@ rust_library(
 
 rust_test(
     name = "grep_matcher_test",
-    srcs = [
-        "tests/tests.rs",
-        "tests/util.rs",
-    ],
+    srcs = glob(["tests/**/*.rs"]),
     deps = [
         ":grep_matcher",
         "@crate_index//:bstr",
