@@ -5,6 +5,9 @@ rust_library(
     crate_name = "grep_matcher",
     crate_root = "src/lib.rs",
     srcs = glob(["src/**/*.rs"]),
+    deps = [
+        "@crate_index//:memchr",
+    ],
     edition = "2021",
     visibility = ["//visibility:public"],
 )
