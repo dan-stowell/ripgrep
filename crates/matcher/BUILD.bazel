@@ -7,6 +7,7 @@ rust_library(
     srcs = [
         "src/caps.rs",
         "src/dfa.rs",
+        "src/error.rs",
         "src/imp.rs",
         "src/interpolate.rs",
         "src/lib.rs",
