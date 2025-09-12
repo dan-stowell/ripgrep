@@ -16,6 +16,14 @@ rust_library(
         "@crate_index//:regex_syntax",
     ],
     proc_macro_deps = [],
+    # Add common feature flags that might be needed
+    rustc_flags = [
+        "--cfg=feature=\"perf\"",
+        "--cfg=feature=\"perf-literal\"",
+        "--cfg=feature=\"perf-dfa\"",
+        "--cfg=feature=\"unicode\"",
+        "--cfg=feature=\"unicode-perl\"",
+    ],
     visibility = ["//visibility:public"],
 )
 
