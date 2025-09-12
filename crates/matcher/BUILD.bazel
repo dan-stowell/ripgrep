@@ -1,4 +1,5 @@
 load("@rules_rust//rust:defs.bzl", "rust_library")
+load("@crate_index//:defs.bzl", "crate_dep")
 
 rust_library(
     name = "grep_matcher",
@@ -9,10 +10,17 @@ rust_library(
         "src/noerror.rs",
         "src/utf8.rs",
     ],
-    crate = "//crates/matcher/grep-matcher",
+    crate = crate_dep(
+        name = "grep-matcher",
+        repo = "crate_index",
+    ),
     crate_root = "src/lib.rs",
     deps = [
         "//crates/grep:grep",
+        crate_dep(
+            name = "regex",
+            repo = "crate_index",
+        ),
     ],
     visibility = ["//visibility:public"],
 )
