@@ -9,4 +9,8 @@ rust_library(
     ],
     edition = "2021",
     crate_root = "src/lib.rs",
+    deps = [
+        "@crate_index//:memchr",
+        "@crate_index//:regex_automata",
+    ],
 )
