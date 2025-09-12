@@ -1,0 +1,12 @@
+load("@crate_index//:defs.bzl", "aliases", "all_crate_deps")
+load("@rules_rust//rust:defs.bzl", "rust_library")
+
+rust_library(
+    name = "grep_matcher",
+    srcs = glob(["src/**/*.rs"]),
+    aliases = aliases(),
+    crate_name = "grep_matcher",
+    deps = all_crate_deps(normal = True),
+    edition = "2021",
+    visibility = ["//visibility:public"],
+)
