@@ -9,7 +9,7 @@ rust_library(
     crate_root = "src/lib.rs",
     crate_name = "grep-matcher",
     edition = "2021",
-    deps = [],
+    deps = ["@crate_index//:bstr"],
     visibility = ["//visibility:public"],
 )
   
