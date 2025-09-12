@@ -6,10 +6,7 @@ rust_library(
     srcs = glob(["src/**/*.rs"]),
     crate_root = "src/lib.rs",
     deps = [
-        "@crate_index//:bstr",
-        "@crate_index//:log",
-        "@crate_index//:regex",
-        "@crate_index//:regex_syntax",
+        "@crate_index//:memchr",
     ],
     edition = "2021",
 )
