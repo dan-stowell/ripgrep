@@ -7,7 +7,7 @@ rust_library(
     ],
     edition = "2021",
     deps = [
-        "@crate_index//:bstr",
+        "@crate_index//:bstr_std",
         "@crate_index//:memchr",
     ],
 )
