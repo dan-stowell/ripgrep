@@ -20,9 +20,9 @@ rust_library(
     deps = [
         "@crate_index//:bstr",
         "@crate_index//:log",
-        "@crate_index//:memchr",
-        "@crate_index//:regex-automata",
-        "@crate_index//:regex-syntax",
+        "@crate_index//:memchr_2",
+        "@crate_index//:regex_automata",
+        "@crate_index//:regex_syntax",
     ],
 )
 
