@@ -7,5 +7,5 @@ rust_library(
         exclude = ["tests/**/*.rs"],
     ),
     crate_root = "src/lib.rs",
-    edition = "2018",
+    edition = "2021",
 )
