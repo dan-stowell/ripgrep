@@ -4,4 +4,7 @@ rust_library(
     name = "grep_matcher",
     srcs = glob(["src/**/*.rs"]),
     edition = "2021",
+    deps = [
+        "@crate_index//:memchr",
+    ],
 )
