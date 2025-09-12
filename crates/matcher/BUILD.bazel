@@ -19,7 +19,6 @@ rust_test(
     crate = ":grep_matcher",
     crate_root = "tests/tests.rs",
     deps = [
-        "//crates/regex:grep_regex",
         "@crate_index//:regex",
     ],
 )
