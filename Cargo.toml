@@ -41,6 +41,7 @@ members = [
   "crates/grep",
   "crates/cli",
   "crates/matcher",
+  "crates/matcher/grep-matcher",
   "crates/pcre2",
   "crates/printer",
   "crates/regex",

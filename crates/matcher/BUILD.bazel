@@ -1,0 +1,18 @@
+load("@rules_rust//rust:defs.bzl", "rust_library")
+
+rust_library(
+    name = "grep_matcher",
+    srcs = [
+        "src/lib.rs",
+        "src/candidate.rs",
+        "src/matcher.rs",
+        "src/noerror.rs",
+        "src/utf8.rs",
+    ],
+    crate = "//crates/matcher/grep-matcher",
+    crate_root = "src/lib.rs",
+    deps = [
+        "//crates/grep:grep",
+    ],
+    visibility = ["//visibility:public"],
+)
