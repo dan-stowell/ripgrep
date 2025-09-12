@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_library")
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
 
 rust_library(
     name = "grep_matcher",
@@ -7,5 +7,16 @@ rust_library(
     edition = "2021",
     deps = [
         "@crate_index//:memchr",
+    ],
+)
+
+rust_test(
+    name = "integration_test",
+    srcs = glob(["tests/*.rs", "tests/**/*.rs"]),
+    crate_root = "tests/tests.rs",
+    edition = "2021",
+    deps = [
+        ":grep_matcher",
+        "@crate_index//:regex",
     ],
 )
