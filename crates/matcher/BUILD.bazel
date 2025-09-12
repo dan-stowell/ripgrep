@@ -8,6 +8,8 @@ rust_library(
     crate_name = "grep_matcher",
     deps = all_crate_deps(
         normal = True,
-    ),
+    ) + [
+        "@crate_index//:memchr",
+    ],
     visibility = ["//visibility:public"],
 )
