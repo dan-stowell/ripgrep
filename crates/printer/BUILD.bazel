@@ -1,0 +1,27 @@
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+load("@crate_index//:defs.bzl", "all_crate_deps")
+
+rust_library(
+    name = "printer",
+    srcs = glob(["src/**/*.rs"]),
+    crate_name = "grep_printer",
+    edition = "2021",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//crates/matcher:matcher",
+        "//crates/searcher:searcher",
+    ] + all_crate_deps(
+        normal = True,
+    ),
+)
+
+rust_test(
+    name = "lib_tests",
+    crate = ":printer",
+    edition = "2021",
+    deps = [
+        "//crates/regex:regex",
+    ] + all_crate_deps(
+        normal_dev = True,
+    ),
+)

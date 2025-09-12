@@ -1,0 +1,26 @@
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+load("@crate_index//:defs.bzl", "all_crate_deps")
+
+rust_library(
+    name = "searcher",
+    srcs = glob(["src/**/*.rs"]),
+    crate_name = "grep_searcher",
+    edition = "2021",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//crates/matcher:matcher",
+    ] + all_crate_deps(
+        normal = True,
+    ),
+)
+
+rust_test(
+    name = "lib_tests",
+    crate = ":searcher",
+    edition = "2021",
+    deps = [
+        "//crates/regex:regex",
+    ] + all_crate_deps(
+        normal_dev = True,
+    ),
+)
