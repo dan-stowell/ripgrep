@@ -7,6 +7,9 @@ rust_library(
     edition = "2021",
     deps = [
         "@crate_index//log",
+        "@crate_index//grep-regex",
+        "@crate_index//grep-searcher",
+        "@crate_index//termcolor",
     ],
 )
 
