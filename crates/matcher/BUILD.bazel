@@ -6,6 +6,10 @@ rust_library(
     deps = [
         "@crate_index//:memchr",
         "@crate_index//:regex",
+        # Add common utility dependencies that might be needed
+        "@crate_index//:lazy_static",
+        "@crate_index//:log",
+        "@crate_index//:cfg-if",
     ],
     proc_macro_deps = [],
     visibility = ["//visibility:public"],
@@ -18,6 +22,7 @@ rust_test(
         ":grep_matcher",
         ":testutil",
         "@crate_index//:regex",
+        "@crate_index//:bstr",
     ],
 )
 rust_library(
@@ -26,6 +31,7 @@ rust_library(
     deps = [
         ":grep_matcher",
         "@crate_index//:regex",
+        "@crate_index//:bstr",
     ],
     visibility = ["//tests:__subpackages__"],
 )
