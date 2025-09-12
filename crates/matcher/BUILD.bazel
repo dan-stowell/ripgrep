@@ -1,0 +1,12 @@
+load("@rules_rust//rust:rust.bzl", "rust_library")
+
+rust_library(
+    name = "grep_matcher",
+    srcs = glob(["src/**/*.rs"]),
+    edition = "2021",
+    crate_root = "src/lib.rs",
+    deps = [
+        "//crates/core",
+        "//crates/regex",
+    ],
+)
