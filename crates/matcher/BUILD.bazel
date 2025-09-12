@@ -5,15 +5,21 @@ rust_library(
     srcs = glob(["src/**/*.rs"]),
     crate_name = "grep_matcher",
     edition = "2021",
-    proc_macro_deps = [
-        "@crate_index//log-macros",
-    ],
     deps = [
         "@crate_index//aho-corasick",
         "@crate_index//memchr",
         "@crate_index//regex-automata",
         "@crate_index//regex-syntax",
         "@crate_index//regex",
+        "@crate_index//log",
+        "@crate_index//log-macros",
+    ],
+)
+
+rust_proc_macro(
+    name = "log-macros",
+    crate_name = "log_macros",
+    deps = [
         "@crate_index//log",
     ],
 )
