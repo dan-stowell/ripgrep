@@ -1,0 +1,14 @@
+# Minimal file to provide the //crates/globset:globset target during an
+# incremental Bazel migration. This is intentionally a simple filegroup so the
+# target exists and can be depended on while we add proper Rust rules later.
+#
+# If you want this crate to be compiled by Bazel with rules_rust, I'll need
+# to add a rust_library / rust_binary rule and ensure the WORKSPACE contains
+# the rules_rust toolchain. If you'd like me to make that change, please
+# add the WORKSPACE file and confirm any crate-local Cargo.toml and src files
+# you want included.
+filegroup(
+    name = "globset",
+    srcs = glob(["**/*"]),
+    visibility = ["//visibility:public"],
+)
