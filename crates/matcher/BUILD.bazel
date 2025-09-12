@@ -6,6 +6,7 @@ rust_library(
     deps = [
         "@crate_index//:memchr",
     ],
+    proc_macro_deps = [],
     visibility = ["//visibility:public"],
 )
 
