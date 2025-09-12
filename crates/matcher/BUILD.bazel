@@ -8,7 +8,6 @@ rust_library(
     deps = [
         "@crate_index//log",
         "//crates/regex:grep_regex",
-        "//crates/searcher:grep_searcher",
         "@crate_index//termcolor",
     ],
 )
