@@ -1,0 +1,11 @@
+load("@rules_rust//rust:defs.bzl", "rust_library")
+
+rust_library(
+    name = "grep_matcher",
+    srcs = glob(["src/**/*.rs"]),
+    crate_features = [],
+    deps = [
+        "@crate_index//:memchr",
+    ],
+    visibility = ["//visibility:public"],
+)
