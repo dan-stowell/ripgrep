@@ -7,12 +7,6 @@ rust_library(
     edition = "2021",
     visibility = ["//visibility:public"],
     deps = [
-        "@crate_index//:bstr",
-        "@crate_index//:fnv",
-        "@crate_index//:log",
-        "@crate_index//:regex",
-        "@crate_index//:regex-automata",
-        "@crate_index//:regex-syntax",
-        "@crate_index//:thiserror",
+        "@crate_index//:memchr",
     ],
 )
