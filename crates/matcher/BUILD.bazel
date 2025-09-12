@@ -8,5 +8,6 @@ rust_library(
     deps = [
         "//crates/regex:regex",
         "//crates/core:core",
+        "@rules_rust//rust:rustc_std_workspace_core",
     ],
 )
