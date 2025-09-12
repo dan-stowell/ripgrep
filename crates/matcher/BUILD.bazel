@@ -14,6 +14,7 @@ rust_library(
         "src/line_terminator.rs",
         "src/literal.rs",
         "src/match.rs",
+        "src/regex_automata.rs",
         "src/util.rs",
     ],
     edition = "2021",
