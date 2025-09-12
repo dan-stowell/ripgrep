@@ -10,10 +10,10 @@ rust_library(
     crate_root = "src/lib.rs",
     deps = [
         "@crate_index//:memchr",
-        "@crate_index//:regex_automata",
+        "@crate_index//:regex-automata",
         "@crate_index//:regex",
         "@crate_index//:bstr",
-        "@crate_index//:aho_corasick",
+        "@crate_index//:aho-corasick",
         "@crate_index//:log",
     ],
     proc_macro_deps = [],
