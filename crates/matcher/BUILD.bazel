@@ -10,19 +10,8 @@ rust_library(
     crate_root = "src/lib.rs",
     deps = [
         "@crate_index//:memchr",
-        "@crate_index//:regex-automata",
-        "@crate_index//:regex",
-        "@crate_index//:bstr",
-        "@crate_index//:aho-corasick",
-        "@crate_index//:log",
     ],
     proc_macro_deps = [],
-    crate_features = [
-        "std",
-        "perf-literal",
-        "perf-literal-multisubstring",
-        "perf-literal-substring",
-    ],
     visibility = ["//visibility:public"],
 )
 
@@ -33,10 +22,6 @@ rust_test(
         ":grep_matcher",
         ":testutil",
         "@crate_index//:regex",
-        "@crate_index//:bstr",
-        "@crate_index//:aho_corasick",
-        "@crate_index//:regex_automata",
-        "@crate_index//:regex_syntax",
     ],
 )
 rust_library(
@@ -45,10 +30,6 @@ rust_library(
     deps = [
         ":grep_matcher",
         "@crate_index//:regex",
-        "@crate_index//:bstr",
-        "@crate_index//:regex_automata",
-        "@crate_index//:regex_syntax",
-        "@crate_index//:aho_corasick",
     ],
     visibility = ["//tests:__subpackages__"],
 )
