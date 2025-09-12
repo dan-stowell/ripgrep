@@ -5,5 +5,11 @@ rust_library(
     crate_name = "grep-matcher",
     srcs = glob(["src/**/*.rs"]),
     crate_root = "src/lib.rs",
+    deps = [
+        "@crate_index//:bstr",
+        "@crate_index//:log",
+        "@crate_index//:regex",
+        "@crate_index//:regex_syntax",
+    ],
     edition = "2021",
 )
