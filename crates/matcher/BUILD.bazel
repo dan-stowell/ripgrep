@@ -1,0 +1,31 @@
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "grep_matcher",
+    srcs = glob(["src/**/*.rs"]),
+    deps = [
+        # Add dependencies based on typical Rust matcher implementations
+        # These may need adjustment
+        "@crate_index//:memchr",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+rust_test(
+    name = "tests",
+    srcs = glob(["tests/**/*.rs"]),
+    deps = [
+        ":grep_matcher",
+        ":testutil",
+        "@crate_index//:regex",
+    ],
+)
+rust_library(
+    name = "testutil",
+    srcs = ["tests/util.rs"],
+    deps = [
+        ":grep_matcher",
+        "@crate_index//:regex",
+    ],
+    visibility = ["//tests:__subpackages__"],
+)
