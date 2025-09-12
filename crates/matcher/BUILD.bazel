@@ -7,7 +7,7 @@ rust_library(
     edition = "2021",
     visibility = ["//visibility:public"],
     deps = [
-        "//crates/grep",
+        "//crates/grep:grep",
         "@crate_index//:regex",
         "@crate_index//:fnv",
     ],
