@@ -10,7 +10,6 @@ rust_library(
         "@crate_index//:lazy_static",
         "@crate_index//:log",
         "@crate_index//:cfg-if",
-        # Add common dependencies that might be used
         "@crate_index//:aho_corasick",
         "@crate_index//:regex-automata",
     ],
@@ -28,6 +27,7 @@ rust_test(
         "@crate_index//:bstr",
         "@crate_index//:aho_corasick",
         "@crate_index//:regex-automata",
+        "@crate_index//:regex-syntax",
     ],
 )
 rust_library(
@@ -39,6 +39,7 @@ rust_library(
         "@crate_index//:bstr",
         "@crate_index//:aho_corasick",
         "@crate_index//:regex-automata",
+        "@crate_index//:regex-syntax",
     ],
     visibility = ["//tests:__subpackages__"],
 )
