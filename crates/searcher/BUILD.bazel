@@ -1,0 +1,8 @@
+# Minimal BUILD to expose //crates/searcher:grep_searcher so Bazel can address this target.
+# This uses a filegroup so it doesn't attempt to compile Rust yet; it's the smallest
+# change that makes the target exist while you migrate targets incrementally.
+filegroup(
+    name = "grep_searcher",
+    srcs = glob(["src/**/*.rs", "Cargo.toml"]),
+    visibility = ["//visibility:public"],
+)
