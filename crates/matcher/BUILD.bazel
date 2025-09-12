@@ -6,5 +6,8 @@ rust_library(
     name = "grep_matcher",
     srcs = glob(["src/**/*.rs"]),
     crate_name = "grep_matcher",
-    deps = ["@crate_index//:log"],
+    deps = [
+        "@crate_index//:memchr",
+        "@crate_index//:regex",
+    ],
 )
