@@ -2,8 +2,12 @@ load("@rules_rust//rust:defs.bzl", "rust_library")
 
 rust_library(
     name = "grep_matcher",
-    srcs = glob(["grep-matcher/src/**/*.rs"]),
-    crate_root = "grep-matcher/src/lib.rs",
+    srcs = glob(["src/**/*.rs"]),
+    crate_root = "src/lib.rs",
     edition = "2021",
+    deps = [
+        "@crate_index//:bstr",
+        "@crate_index//:memchr",
+    ],
     visibility = ["//visibility:public"],
 )
