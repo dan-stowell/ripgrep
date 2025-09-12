@@ -19,6 +19,7 @@ rust_library(
     edition = "2021",
     crate_root = "src/lib.rs",
     deps = [
+        "@crate_index//:aho_corasick",
         "@crate_index//:bstr",
         "@crate_index//:log",
         "@crate_index//:memchr",
