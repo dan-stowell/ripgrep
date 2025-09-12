@@ -11,6 +11,7 @@ rust_library(
         "src/line_terminator.rs",
         "src/match.rs",
         "src/no_error.rs",
+        "src/util.rs",
     ],
     edition = "2021",
     crate_root = "src/lib.rs",
