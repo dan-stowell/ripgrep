@@ -5,5 +5,8 @@ rust_library(
     srcs = [
         "src/lib.rs",
     ],
+    deps = [
+        "@crate_index//:memchr",
+    ],
     visibility = ["//visibility:public"],
 )
