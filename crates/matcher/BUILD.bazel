@@ -12,7 +12,7 @@ rust_library(
         "@crate_index//:log",
         "@crate_index//:memchr",
     ] + select({
-        "//rust:test": [
+        "@rules_rust//rust:test": [
             "@crate_index//:regex",
         ],
         "//conditions:default": [],
