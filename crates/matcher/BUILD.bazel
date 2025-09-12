@@ -10,7 +10,12 @@ rust_library(
     deps = [
         "@crate_index//:log",
         "@crate_index//:memchr",
-    ],
+    ] + select({
+        "//rust:test": [
+            "//crates/regex:grep_regex",
+        ],
+        "//conditions:default": [],
+    }),
 )
 
 rust_test(
