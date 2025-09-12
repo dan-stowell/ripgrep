@@ -9,6 +9,7 @@ rust_library(
         "@crate_index//log",
         "//crates/regex:grep_regex",
         "@crate_index//termcolor",
+        "@crate_index//bstr",
     ],
 )
 
