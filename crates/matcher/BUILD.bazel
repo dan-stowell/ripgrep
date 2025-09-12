@@ -6,6 +6,11 @@ rust_library(
     name = "grep_matcher",
     srcs = [
         "src/lib.rs",
+        "src/line_terminator.rs",
+        "src/matcher.rs",
+        "src/multi.rs",
+        "src/noop.rs",
+        "src/util.rs",
     ],
     edition = "2021",
     crate_root = "src/lib.rs",
