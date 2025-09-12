@@ -5,6 +5,8 @@ rust_library(
     srcs = glob(["src/**/*.rs"]),
     deps = [
         "@crate_index//regex",
+        "@crate_index//regex-syntax",
+        "@crate_index//memchr",
         "@crate_index//termcolor",
     ],
 )
