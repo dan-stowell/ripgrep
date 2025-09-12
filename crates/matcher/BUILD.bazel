@@ -8,15 +8,6 @@ rust_library(
     crate_name = "grep_matcher",
     edition = "2018",
     crate_features = [],
-    deps = [
-        "@crate_index//:log",
-        "@crate_index//:memchr",
-    ] + select({
-        "@rules_rust//rust:test": [
-            "@crate_index//:regex",
-        ],
-        "//conditions:default": [],
-    }),
 )
 
 rust_test(
