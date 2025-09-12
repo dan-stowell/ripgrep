@@ -1,5 +1,3 @@
-load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
-
 package(default_visibility = ["//visibility:public"])
 
-# This empty BUILD file marks the root of the workspace and sets default visibility
+# This BUILD file marks the root of the workspace and sets default visibility
