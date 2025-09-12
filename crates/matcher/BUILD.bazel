@@ -12,7 +12,7 @@ rust_library(
         "@crate_index//:log",
         "@crate_index//:memchr",
         "@crate_index//:regex-automata",
-        "@crate_index//:regex_syntax",
+        "@crate_index//:regex-syntax",
     ],
 )
 
