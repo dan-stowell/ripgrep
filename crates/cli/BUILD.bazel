@@ -1,6 +1,8 @@
-sh_binary(
+genrule(
     name = "grep_cli",
     srcs = ["grep_cli.sh"],
+    outs = ["grep_cli"],
+    cmd = "cp $(location grep_cli.sh) $@ && chmod +x $@",
     visibility = ["//visibility:public"],
 )
 
