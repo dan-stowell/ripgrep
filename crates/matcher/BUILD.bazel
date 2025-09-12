@@ -19,5 +19,6 @@ rust_library(
         "@crate_index//:regex-automata-syntax",
         "@crate_index//:regex-empty",
         "@crate_index//:regex-syntax",
+        "@rules_rust//tools/runfiles",
     ],
 )
