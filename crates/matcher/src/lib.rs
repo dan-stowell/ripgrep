@@ -496,11 +496,7 @@ impl Captures for NoCaptures {
 #[derive(Debug, Eq, PartialEq)]
 pub struct NoError(());
 
-impl std::error::Error for NoError {
-    fn description(&self) -> &str {
-        "no error"
-    }
-}
+impl std::error::Error for NoError {}
 
 impl std::fmt::Display for NoError {
     fn fmt(&self, _: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
