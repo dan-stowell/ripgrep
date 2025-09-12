@@ -10,6 +10,7 @@ rust_library(
         "@crate_index//:grep-printer",
         "@crate_index//:memchr",
         "@crate_index//:regex",
+        "@crate_index//:regex-syntax",
     ],
     visibility = ["//visibility:public"],
 )
