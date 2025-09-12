@@ -7,6 +7,7 @@ rust_library(
     srcs = glob(["src/**/*.rs"]),
     edition = "2021",
     deps = [
-        # Add dependencies here as needed
+        "@crate_index//:memchr",
+        "@crate_index//:regex_automata",
     ],
 )
