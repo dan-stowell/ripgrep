@@ -12,6 +12,11 @@ rust_library(
         "@crate_index//:memchr",
         "@crate_index//:regex",
         "@crate_index//:regex-automata",
+        "@crate_index//:regex-automata-determinize",
+        "@crate_index//:regex-automata-meta",
+        "@crate_index//:regex-automata-nfa",
+        "@crate_index//:regex-automata-syntax",
+        "@crate_index//:regex-empty",
         "@crate_index//:regex-syntax",
     ],
 )
