@@ -4,8 +4,6 @@ rust_library(
     name = "grep_matcher",
     srcs = glob(["src/**/*.rs"]),
     deps = [
-        # Add dependencies based on typical Rust matcher implementations
-        # These may need adjustment
         "@crate_index//:memchr",
     ],
     visibility = ["//visibility:public"],
