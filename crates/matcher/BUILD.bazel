@@ -3,10 +3,9 @@ load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
 rust_library(
     name = "grep_matcher",
     crate = "grep-matcher",
-    srcs = glob(
-        ["src/**/*.rs"],
-        exclude = ["tests/**/*.rs"],
-    ),
+    srcs = glob([
+        "src/**/*.rs",
+    ]),
     crate_root = "src/lib.rs",
     deps = [
         "@crate_index//:memchr2",
