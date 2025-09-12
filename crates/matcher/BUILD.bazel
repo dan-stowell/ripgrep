@@ -11,5 +11,6 @@ rust_library(
         "@rules_rust//rust:alloc",
         "@rules_rust//rust:std",
         "@rules_rust//rust:rustc_std_workspace_core",
+        "@rules_rust//rust:proc_macro",
     ],
 )
