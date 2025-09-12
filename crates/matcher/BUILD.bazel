@@ -10,7 +10,6 @@ rust_library(
         "@crate_index//:lazy_static",
         "@crate_index//:log",
         "@crate_index//:cfg-if",
-        "//crates/grep:grep",  # Add internal grep dependency
     ],
     proc_macro_deps = [],
     visibility = ["//visibility:public"],
@@ -24,7 +23,6 @@ rust_test(
         ":testutil",
         "@crate_index//:regex",
         "@crate_index//:bstr",
-        "//crates/grep:grep",  # Add internal grep dependency for tests
     ],
 )
 rust_library(
@@ -34,7 +32,6 @@ rust_library(
         ":grep_matcher",
         "@crate_index//:regex",
         "@crate_index//:bstr",
-        "//crates/grep:grep",  # Add internal grep dependency for testutil
     ],
     visibility = ["//tests:__subpackages__"],
 )
