@@ -23,6 +23,7 @@ rust_library(
         "--cfg=feature=\"perf-dfa\"",
         "--cfg=feature=\"unicode\"",
         "--cfg=feature=\"unicode-perl\"",
+        "--cfg=feature=\"std\"",
     ],
     visibility = ["//visibility:public"],
 )
