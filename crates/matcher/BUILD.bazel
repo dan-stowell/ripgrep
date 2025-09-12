@@ -9,5 +9,7 @@ rust_library(
     deps = [
         "@crate_index//:memchr",
         "@crate_index//:bstr",
+        "@crate_index//:regex",
+        "@crate_index//:regex-syntax",
     ],
 )
