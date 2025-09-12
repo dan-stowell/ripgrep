@@ -6,8 +6,8 @@ rust_library(
     crate_root = "src/lib.rs",
     edition = "2021",
     deps = [
-        "//crates/regex",
-        "//crates/core",
+        "//crates/regex:regex",
+        "//crates/core:core",
         "@rules_rust//rust:rustc_std_workspace_core",
         "@rules_rust//rust:alloc",
         "@rules_rust//rust:std",
