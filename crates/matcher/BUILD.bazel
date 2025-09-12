@@ -6,5 +6,6 @@ rust_library(
     crate_root = "src/lib.rs",
     srcs = glob(["src/**/*.rs"]),
     edition = "2021",
+    deps = ["@crate_index//:memchr"],
     visibility = ["//visibility:public"],
 )
