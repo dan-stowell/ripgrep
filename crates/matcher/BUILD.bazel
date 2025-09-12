@@ -6,9 +6,11 @@ rust_library(
     name = "grep_matcher",
     srcs = [
         "src/caps.rs",
+        "src/dfa.rs",
         "src/interpolate.rs",
         "src/lib.rs",
         "src/line_terminator.rs",
+        "src/literal.rs",
         "src/match.rs",
         "src/no_error.rs",
         "src/util.rs",
