@@ -5,24 +5,12 @@ rust_library(
     srcs = glob(["src/**/*.rs"]),
     crate_root = "src/lib.rs",
     deps = [
-        "@crate_index//:memchr",
-        "@crate_index//:regex",
-        "@crate_index//:bstr",
-        "@crate_index//:lazy_static",
-        "@crate_index//:log",
-        "@crate_index//:cfg_if",
-        "@crate_index//:aho_corasick",
-        "@crate_index//:regex_automata",
-        "@crate_index//:regex_syntax",
+        # The matcher crate seems to only use standard library types
+        # No external dependencies are visible from the provided source
     ],
     proc_macro_deps = [],
     # Add common feature flags that might be needed
     rustc_flags = [
-        "--cfg=feature=\"perf\"",
-        "--cfg=feature=\"perf-literal\"",
-        "--cfg=feature=\"perf-dfa\"",
-        "--cfg=feature=\"unicode\"",
-        "--cfg=feature=\"unicode-perl\"",
         "--cfg=feature=\"std\"",
     ],
     visibility = ["//visibility:public"],
@@ -46,11 +34,8 @@ rust_library(
     srcs = ["tests/util.rs"],
     deps = [
         ":grep_matcher",
+        # Add dependencies that are used in the test utilities
         "@crate_index//:regex",
-        "@crate_index//:bstr",
-        "@crate_index//:aho_corasick",
-        "@crate_index//:regex_automata",
-        "@crate_index//:regex_syntax",
     ],
     visibility = ["//tests:__subpackages__"],
 )
