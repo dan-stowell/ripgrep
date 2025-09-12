@@ -11,4 +11,5 @@ rust_library(
         "@rules_rust//rust:rustc_std_workspace_core",
         "//crates/matcher:matcher",
     ],
+    visibility = ["//visibility:public"],
 )
