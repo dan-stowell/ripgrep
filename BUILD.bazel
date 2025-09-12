@@ -1,0 +1,33 @@
+load("@rules_rust//rust:defs.bzl", "rust_test")
+
+rust_test(
+    name = "integration_tests",
+    srcs = glob(["tests/**/*.rs"]),
+    crate_root = "tests/tests.rs",
+    deps = [
+        # "//crates/cli", # The ripgrep binary
+        "@crate_index//:assert_cmd",
+        "@crate_index//:bstr",
+        "@crate_index//:csv",
+        "@crate_index//:doc-comment",
+        "@crate_index//:env_logger",
+        "@crate_index//:glob",
+        "@crate_index//:lazy_static",
+        "@crate_index//:log",
+        "@crate_index//:os_pipe",
+        "@crate_index//:rand",
+        "@crate_index//:semver",
+        "@crate_index//:serde",
+        "@crate_index//:serde_json",
+        "@crate_index//:tempfile",
+        "@crate_index//:walkdir",
+    ],
+)
+
+test_suite(
+    name = "tests",
+    tests = [
+        "//crates/matcher:grep_matcher_test",
+        ":integration_tests",
+    ],
+)
