@@ -8,7 +8,9 @@ rust_library(
     visibility = ["//visibility:public"],
     deps = [
         "//crates/grep:grep",
-        "@crate_index//:regex",
+        "@crate_index//:bstr",
         "@crate_index//:fnv",
+        "@crate_index//:log",
+        "@crate_index//:regex",
     ],
 )
