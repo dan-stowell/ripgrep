@@ -9,5 +9,12 @@ rust_library(
     crate_root = "src/lib.rs",
     crate_name = "grep_matcher",
     edition = "2021",
-    deps = ["@crate_index//:memchr"],
+    deps = [
+        "@crate_index//:bstr",
+        "@crate_index//:encoding_rs",
+        "@crate_index//:log",
+        "@crate_index//:memchr",
+        "@crate_index//:regex",
+        "@crate_index//:regex-syntax",
+    ],
 )
