@@ -8,8 +8,5 @@ rust_library(
     visibility = ["//visibility:public"],
     deps = [
         "@crate_index//:memchr",
-        "@crate_index//:bstr",
-        "@crate_index//:regex",
-        "@crate_index//:regex-syntax",
     ],
 )
