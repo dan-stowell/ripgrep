@@ -13,3 +13,13 @@ rust_repositories()
 load("@rules_rust//crate_universe:bootstrap.bzl", "crate_universe_bootstrap")
 
 crate_universe_bootstrap()
+
+load("//:MODULE.bazel", "crate")
+
+load("@rules_rust//crate_universe:repositories.bzl", "crate_universe_dependencies")
+
+crate_universe_dependencies()
+
+load("@crate_index//:defs.bzl", "crate_repositories")
+
+crate_repositories()
