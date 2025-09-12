@@ -11,7 +11,8 @@ rust_library(
 
 rust_test(
     name = "integration",
-    srcs = ["tests/tests.rs"],
+    srcs = glob(["tests/**/*.rs"]),
+    crate_root = "tests/tests.rs",
     deps = [
         ":grep_matcher",
         "@crate_index//:regex",
