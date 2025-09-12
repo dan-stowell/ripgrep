@@ -7,6 +7,10 @@ rust_library(
     srcs = [
         "src/interpolate.rs",
         "src/lib.rs",
+        "src/line_terminator.rs",
+        "src/match.rs",
+        "src/no_error.rs",
+        "src/no_regex.rs",
     ],
     edition = "2021",
     crate_root = "src/lib.rs",
