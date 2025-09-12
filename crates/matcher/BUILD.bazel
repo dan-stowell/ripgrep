@@ -5,8 +5,8 @@ rust_library(
     srcs = glob(["src/**/*.rs"]),
     crate_root = "src/lib.rs",
     deps = [
-        # The matcher crate seems to only use standard library types
-        # No external dependencies are visible from the provided source
+        "@crate_index//:memchr",
+        "@crate_index//:regex_automata",
     ],
     proc_macro_deps = [],
     # Add common feature flags that might be needed
