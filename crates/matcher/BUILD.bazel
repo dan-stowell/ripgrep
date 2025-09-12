@@ -10,6 +10,6 @@ rust_library(
         "@crate_index//:aho_corasick",
         "@crate_index//:bstr",
         "@crate_index//:memchr",
-        "@crate_index//:regex-syntax",
+        "@crate_index//:regex_syntax",
     ],
 )
