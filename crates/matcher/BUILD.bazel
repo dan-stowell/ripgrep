@@ -4,7 +4,7 @@ rust_library(
     name = "grep_matcher",
     srcs = ["src/lib.rs"],
     deps = [
-        "@crate_index//aho-corasick",
-        "@crate_index//memchr",
+        "@crate_index//:aho-corasick",
+        "@crate_index//:memchr",
     ],
 )
