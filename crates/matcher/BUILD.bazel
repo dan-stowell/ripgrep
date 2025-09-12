@@ -8,5 +8,4 @@ rust_library(
     edition = "2021",
     rustc_flags = ["-A deprecated"],
     visibility = ["//visibility:public"],
-    deps = ["@crate_index//:memchr"],
 )
