@@ -8,8 +8,8 @@ rust_library(
     deps = [
         "@crate_index//aho-corasick",
         "@crate_index//log",
-        "@crate_index//memchr",
         "@crate_index//regex-automata",
+        "@crate_index//memchr",
         "@crate_index//regex-syntax",
         "@crate_index//regex",
         "@crate_index//regex-lite",
