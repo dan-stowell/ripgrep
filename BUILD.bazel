@@ -22,3 +22,5 @@ crate.from_cargo(
 )
 
 use_repo(crate, "crate_index")
+
+package(default_visibility = ["//visibility:public"])
