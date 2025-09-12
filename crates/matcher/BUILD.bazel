@@ -5,7 +5,7 @@ rust_library(
     srcs = [
         "src/lib.rs",
     ],
-    edition = "2021",
+    edition = "2018",
     deps = [
         "@crate_index//:memchr",
     ],
