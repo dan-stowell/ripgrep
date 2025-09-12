@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_library")
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -6,13 +6,23 @@ rust_library(
     name = "grep_matcher",
     srcs = [
         "src/lib.rs",
-        "tests/tests.rs",
-        "tests/util.rs",
     ],
     edition = "2021",
     crate_root = "src/lib.rs",
     deps = [
         "@crate_index//:memchr",
         "@crate_index//:regex-automata",
+    ],
+)
+
+rust_test(
+    name = "grep_matcher_test",
+    srcs = [
+        "tests/tests.rs",
+        "tests/util.rs",
+    ],
+    deps = [
+        ":grep_matcher",
+        "@crate_index//:bstr",
     ],
 )
