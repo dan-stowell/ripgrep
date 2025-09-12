@@ -18,12 +18,24 @@ rust_library(
     ],
 )
 
+rust_library(
+    name = "util",
+    srcs = ["tests/util.rs"],
+    crate_name = "grep_matcher_test_util",
+    edition = "2021",
+    deps = [
+        ":grep_matcher",
+        "@crate_index//regex",
+    ],
+)
+
 rust_test(
     name = "grep_matcher_test",
     crate = ":grep_matcher",
-    srcs = glob(["tests/**/*.rs"]),
+    srcs = glob(["tests/**/*.rs"], exclude = ["tests/util.rs"]),
     edition = "2021",
     deps = [
+        ":util",
         "@crate_index//bstr",
     ],
 )
