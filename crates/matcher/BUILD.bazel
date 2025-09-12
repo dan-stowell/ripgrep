@@ -6,7 +6,9 @@ rust_library(
     crate_name = "grep_matcher",
     edition = "2021",
     deps = [
+        "@crate_index//aho-corasick",
         "@crate_index//log",
+        "@crate_index//memchr",
         "//crates/macro:grep_macro",
         "//crates/regex:grep_regex",
         "@crate_index//termcolor",
