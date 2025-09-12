@@ -7,11 +7,17 @@ rust_library(
     deps = [
         "@crate_index//:memchr",
         "@crate_index//:regex_automata",
+        "@crate_index//:regex",
+        "@crate_index//:bstr",
+        "@crate_index//:aho_corasick",
     ],
     proc_macro_deps = [],
     # Add common feature flags that might be needed
     rustc_flags = [
         "--cfg=feature=\"std\"",
+        "--cfg=feature=\"perf-literal\"",
+        "--cfg=feature=\"perf-literal-multisubstring\"",
+        "--cfg=feature=\"perf-literal-substring\"",
     ],
     visibility = ["//visibility:public"],
 )
