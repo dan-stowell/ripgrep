@@ -2,14 +2,11 @@ load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
 
 rust_library(
     name = "grep_matcher",
-    crate = "matcher",
+    crate = "grep-matcher",
     srcs = glob(["src/**/*.rs"]),
     crate_root = "src/lib.rs",
     deps = [
         "@crate_index//:memchr",
-        "@crate_index//:regex-automata",
-        "@crate_index//:aho-corasick",
-        "@crate_index//:log",
     ],
     proc_macro_deps = [],
     edition = "2021",
