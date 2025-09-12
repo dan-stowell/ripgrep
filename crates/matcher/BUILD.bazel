@@ -8,8 +8,6 @@ rust_library(
     edition = "2021",
     deps = [
         "@crate_index//:bstr",
-        "@crate_index//:memchr",
         "@crate_index//:regex",
-        "@crate_index//:regex_syntax",
     ],
 )
