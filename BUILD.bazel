@@ -1,0 +1,24 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "rules_rust",
+    sha256 = "0f8a6509357004ac5accb416a0b36764443dddded1fa5010f54726b003b51515",
+    urls = ["https://github.com/bazelbuild/rules_rust/releases/download/0.64.0/rules_rust-v0.64.0.tar.gz"],
+)
+
+load("@rules_rust//rust:repositories.bzl", "rust_repositories")
+
+rust_repositories()
+
+load("@rules_rust//crate_universe:bootstrap.bzl", "crate_universe_bootstrap")
+
+crate_universe_bootstrap()
+
+load("//MODULE.bazel", "crate")
+
+crate.from_cargo(
+    name = "crate_index",
+    manifests = ["//:Cargo.toml"],
+)
+
+use_repo(crate, "crate_index")
