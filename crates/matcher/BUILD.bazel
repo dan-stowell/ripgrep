@@ -6,7 +6,7 @@ rust_library(
     crate_root = "src/grep_matcher.rs",
     edition = "2018",
     deps = [
-        "//crates/regex",
-        "//crates/core",
+        "//crates/regex:regex",
+        "//crates/core:core",
     ],
 )
