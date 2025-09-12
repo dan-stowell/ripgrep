@@ -7,7 +7,6 @@ rust_library(
     edition = "2021",
     visibility = ["//visibility:public"],
     deps = [
-        "//crates/grep-printer:grep_printer",
         "@crate_index//:bstr",
         "@crate_index//:fnv",
         "@crate_index//:log",
