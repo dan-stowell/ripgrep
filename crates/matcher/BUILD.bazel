@@ -4,12 +4,8 @@ package(default_visibility = ["//visibility:public"])
 
 rust_library(
     name = "grep_matcher",
-    srcs = [
-        "src/lib.rs",
-        "src/matcher.rs",
-        "src/searcher.rs",
-    ],
-    crate_name = "grep-matcher",
+    srcs = glob(["src/**/*.rs"]),
+    crate_name = "grep_matcher",
     edition = "2021",
     crate_features = [],
     deps = [
