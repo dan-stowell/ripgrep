@@ -10,6 +10,5 @@ rust_library(
         "@crate_index//memchr",
         "@crate_index//regex-automata",
         "@crate_index//regex-syntax",
-        "//crates/regex:grep_regex",
     ],
 )
