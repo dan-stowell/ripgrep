@@ -2,6 +2,7 @@ load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
 
 rust_library(
     name = "grep_matcher",
+    crate = "grep-matcher",
     srcs = glob(["src/**/*.rs"]),
     crate_root = "src/lib.rs",
     deps = [
@@ -12,12 +13,11 @@ rust_library(
         "@crate_index//:aho_corasick",
     ],
     proc_macro_deps = [],
-    # Add common feature flags that might be needed
-    rustc_flags = [
-        "--cfg=feature=\"std\"",
-        "--cfg=feature=\"perf-literal\"",
-        "--cfg=feature=\"perf-literal-multisubstring\"",
-        "--cfg=feature=\"perf-literal-substring\"",
+    crate_features = [
+        "std",
+        "perf-literal",
+        "perf-literal-multisubstring",
+        "perf-literal-substring",
     ],
     visibility = ["//visibility:public"],
 )
