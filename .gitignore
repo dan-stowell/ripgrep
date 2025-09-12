@@ -21,3 +21,4 @@ ripgrep*_source.tar.bz2
 cargo-timing-*.html
 cargo-timing.html
 .aider*
+bazel-*
