@@ -1,0 +1,9 @@
+load("@rules_rust//rust:rust.bzl", "rust_library")
+
+rust_library(
+    name = "grep_regex",
+    srcs = glob(["src/**/*.rs"]),
+    crate_root = "src/lib.rs",
+    edition = "2018",
+    visibility = ["//visibility:public"],
+)
