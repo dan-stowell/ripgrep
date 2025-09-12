@@ -2,23 +2,12 @@ load("@rules_rust//rust:defs.bzl", "rust_library")
 
 rust_library(
     name = "grep_matcher",
-    srcs = glob(["src/**/*.rs"]),
+    srcs = glob(["src/*.rs"]),
     crate_root = "src/lib.rs",
     edition = "2021",
     visibility = ["//visibility:public"],
     deps = [
-        "@crate_index//:aho-corasick",
-        "@crate_index//:bstr", 
-        "@crate_index//:fnv",
+        "@crate_index//:bstr",
         "@crate_index//:memchr",
-        "@crate_index//:regex",
-        "@crate_index//:regex-automata",
-        "@crate_index//:regex-automata-determinize",
-        "@crate_index//:regex-automata-meta",
-        "@crate_index//:regex-automata-nfa",
-        "@crate_index//:regex-automata-syntax",
-        "@crate_index//:regex-empty",
-        "@crate_index//:regex-syntax",
-        "@rules_rust//tools/runfiles",
     ],
 )
