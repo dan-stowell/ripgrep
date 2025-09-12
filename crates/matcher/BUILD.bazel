@@ -2,7 +2,7 @@ load("@rules_rust//rust:rust.bzl", "rust_library")
 
 rust_library(
     name = "grep_matcher",
-    srcs = glob(["src/grep_matcher.rs"]),
+    srcs = ["src/grep_matcher.rs"],
     crate_root = "src/grep_matcher.rs",
     edition = "2018",
     deps = [
