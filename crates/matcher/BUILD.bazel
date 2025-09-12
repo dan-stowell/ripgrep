@@ -12,24 +12,32 @@ rust_library(
         "@crate_index//:memchr2",
     ],
     proc_macro_deps = [],
+    edition = "2021",
+    rust_version = "1.88",
     visibility = ["//visibility:public"],
 )
 
 rust_test(
     name = "tests",
     srcs = glob(["tests/**/*.rs"]),
+    crate = "tests",
     deps = [
         ":grep_matcher",
         ":testutil",
         "@crate_index//:regex",
     ],
+    edition = "2021",
+    rust_version = "1.88",
 )
 rust_library(
     name = "testutil",
     srcs = ["tests/util.rs"],
+    crate = "testutil",
     deps = [
         ":grep_matcher",
         "@crate_index//:regex",
     ],
+    edition = "2021",
+    rust_version = "1.88",
     visibility = ["//tests:__subpackages__"],
 )
