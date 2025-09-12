@@ -9,6 +9,8 @@ rust_library(
         "//crates/regex:regex",
         "//crates/core:core",
         "@rules_rust//rust:rustc_std_workspace_core",
+        "@rules_rust//rust:alloc",
+        "@rules_rust//rust:std",
     ],
     visibility = ["//visibility:public"],
 )
