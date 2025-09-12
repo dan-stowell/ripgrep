@@ -9,7 +9,6 @@ rust_library(
         "//crates/regex:regex",
         "//crates/core:core",
         "@rules_rust//rust:rustc_std_workspace_core",
-        "//crates/matcher:matcher",
     ],
     visibility = ["//visibility:public"],
 )
