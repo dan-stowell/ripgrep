@@ -7,7 +7,7 @@ rust_library(
         exclude = ["tests/**/*.rs"],
     ),
     crate_root = "src/lib.rs",
-    crate_name = "matcher",
+    crate_name = "grep_matcher",
     edition = "2021",
     deps = ["@crate_index//:memchr"],
 )
