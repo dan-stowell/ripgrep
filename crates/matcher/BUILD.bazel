@@ -1,8 +1,7 @@
-load("@rules_rust//rust:rust.bzl", "rust_library")
-
-rust_library(
+# Temporary filegroup to allow building the target during incremental Bazel
+# migration. This avoids loading external rules_rust at parse time.
+filegroup(
     name = "grep_matcher",
     srcs = glob(["src/**/*.rs"]),
-    crate_root = "src/lib.rs",
-    edition = "2021",
+    visibility = ["//visibility:public"],
 )
