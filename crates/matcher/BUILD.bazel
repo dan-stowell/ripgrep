@@ -5,8 +5,10 @@ package(default_visibility = ["//visibility:public"])
 rust_library(
     name = "grep_matcher",
     srcs = [
+        "src/capture.rs",
         "src/lib.rs",
         "src/line_terminator.rs",
+        "src/literal.rs",
         "src/matcher.rs",
         "src/multi.rs",
         "src/noop.rs",
