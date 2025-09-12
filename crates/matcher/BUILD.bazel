@@ -9,6 +9,7 @@ rust_library(
     deps = [
         "@crate_index//:aho-corasick",
         "@crate_index//:bstr", 
+        "@crate_index//:fnv",
         "@crate_index//:memchr",
         "@crate_index//:regex",
         "@crate_index//:regex-automata",
@@ -18,5 +19,6 @@ rust_library(
         "@crate_index//:regex-automata-syntax",
         "@crate_index//:regex-empty",
         "@crate_index//:regex-syntax",
+        "@crate_index//:std",
     ],
 )
